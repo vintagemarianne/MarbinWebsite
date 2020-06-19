@@ -141,5 +141,8 @@
       }
     }
   },
-  "defaultProject": "MarbinWebsite"
+  "defaultProject": "MarbinWebsite",
+  "cli": {
+    "analytics": false
+  }
 }
