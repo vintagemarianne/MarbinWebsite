@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shr/shared.module';
 
 import { PurchaseRoutingModule } from './purchase-routing.module';
+import { PurchasePage } from './pages/purchase/purchase.page';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PurchasePage
+  ],
   imports: [
     CommonModule,
     SharedModule,
