@@ -1,0 +1,30 @@
+@import '../../../../shared/style-shared.scss';
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/assets/images/home/landing-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  color: $PureWhite;
+  font-weight: bold;
+  text-align: left;
+}
+
+.search-input {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}

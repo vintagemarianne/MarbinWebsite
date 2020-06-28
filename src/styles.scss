@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./app/shared/style-shared.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  font-family: IRANYekan-web, Roboto, IRANYekan-web-fanum, icomoon !important;
+  text-align: left;
+  background-color: $BackGround;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  ////Input Style
+  input::placeholder {
+    color: #707070;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  input {
+    padding: 0;
+  
+    &:focus {
+      outline: none;
+    }
+  
+    &:disabled {
+      background-color: transparent;
+    }
+  }
+  
+  //remove a style
+  a {
+    text-decoration: none;
+  }
+  
+  ////Scroll Style
+  /* width */
+  ::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ccc;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }

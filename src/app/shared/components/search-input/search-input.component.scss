@@ -1,0 +1,81 @@
+@import '../../style-shared.scss';
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 20px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.search-params-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $PureWhite;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.search-input-container {
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  border-right: 1px solid #eeeeee;
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 10px;
+}
+
+.search-input-container:last-child {
+  border-right: none;
+}
+
+.input-icon {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: $Blue4;
+  margin-right: 10px;
+}
+
+.input-field {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: $Dark;
+//   padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.search-btn {
+  width: 220px;
+  margin-left: 20px;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $Yellow;
+  color: $PureWhite;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SearchInputComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+  ],
+  exports: [
+    SearchInputComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,21 @@
+<section class="main-container">
+    <div class="search-params-container">
+        <div class="search-input-container">
+            <span class="input-icon fa fa-map-marker"></span>
+            <input type="text" class="input-field" placeholder="Place" [(ngModel)]="searchParams.PlaceName">
+        </div>
+        <div class="search-input-container">
+            <span class="input-icon fa fa-map-marker"></span>
+            <input type="text" class="input-field" placeholder="Region or country" [(ngModel)]="searchParams.PlaceLocation">
+        </div>
+        <div class="search-input-container">
+            <input type="text" class="input-field" placeholder="Start date" [(ngModel)]="searchParams.StartDate">
+            <span class="input-icon fa fa-calendar"></span>
+        </div>
+        <div class="search-input-container">
+            <input type="text" class="input-field" placeholder="End date" [(ngModel)]="searchParams.EndDate">
+            <span class="input-icon fa fa-calendar"></span>
+        </div>
+    </div>
+    <div class="search-btn unselectable" (click)="search()">Search</div>
+</section>
