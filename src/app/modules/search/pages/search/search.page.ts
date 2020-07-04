@@ -14,7 +14,8 @@ import { LocalData } from '@shr/local-data';
   styleUrls: ['./search.page.scss']
 })
 export class SearchPage implements OnInit {
-  products: Product[] = [];
+  // products: Product[] = [];
+  products = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
   searchParams: SearchParams = new SearchParams();
 
   constructor(private searchService: SearchService,
@@ -27,11 +28,11 @@ export class SearchPage implements OnInit {
     // debugger;
     this.searchParams = this.searchParamsService.getSearchParams();
 
-    if (!this.searchParams || (!this.searchParams.PlaceLocation && !this.searchParams.PlaceName)) {
-      this.router.navigate([LocalData.routes.home]);
-    }
+    // if (!this.searchParams || (!this.searchParams.PlaceLocation && !this.searchParams.PlaceName)) {
+    //   this.router.navigate([LocalData.routes.home]);
+    // }
 
-    
+
   }
 
 }

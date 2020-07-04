@@ -10,11 +10,16 @@
         </div>
         <div class="search-input-container">
             <input type="text" class="input-field" placeholder="Start date" [(ngModel)]="searchParams.StartDate">
-            <span class="input-icon fa fa-calendar"></span>
+            <span class="input-icon cursor-icon fa fa-calendar"></span>
         </div>
         <div class="search-input-container">
             <input type="text" class="input-field" placeholder="End date" [(ngModel)]="searchParams.EndDate">
-            <span class="input-icon fa fa-calendar"></span>
+            <span class="input-icon cursor-icon fa fa-calendar"></span>
+        </div>
+        <div class="search-input-container">
+            <div class="input-field">{{ searchParams.TravellerCount }} Traveller</div>
+            <span class="input-icon cursor-icon fa fa-minus-square" (click)="removeTraveller()"></span>
+            <span class="input-icon cursor-icon fa fa-plus-square" (click)="addTraveller()"></span>
         </div>
     </div>
     <div class="search-btn unselectable" (click)="search()">Search</div>

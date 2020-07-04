@@ -1,3 +1,9 @@
 <section class="page-container">
-    <app-search-input class="search-input"></app-search-input>
+  <app-search-input class="search-input"></app-search-input>
+
+  <div class="result-list">
+    <div *ngFor="let product of products">
+      <app-result-item [product]="product"></app-result-item>
+    </div>
+  </div>
 </section>

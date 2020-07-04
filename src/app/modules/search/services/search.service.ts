@@ -13,6 +13,7 @@ export class SearchService {
 
   async searchProducts() {
     this.products = await this.httpService.searchProducts();
+    debugger;
   }
 
   getProducts(): Product[] {

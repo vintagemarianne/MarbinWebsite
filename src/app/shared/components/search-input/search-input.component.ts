@@ -22,6 +22,24 @@ export class SearchInputComponent implements OnInit {
     this.searchParams = this.searchParamsService.getSearchParams();
   }
 
+  addTraveller() {
+    if (this.searchParams.TravellerCount > 8) {
+      alert('You can not reserve hotel for more than 9 traveller!');
+      return;
+    }
+
+    this.searchParams.TravellerCount++;
+  }
+
+  removeTraveller() {
+    if (this.searchParams.TravellerCount < 2) {
+      alert('Number of travellers can be less than 1!');
+      return;
+    }
+
+    this.searchParams.TravellerCount--;
+  }
+
   search() {
     if ((!this.searchParams.PlaceLocation && !this.searchParams.PlaceName) ||
       !this.searchParams.StartDate ||

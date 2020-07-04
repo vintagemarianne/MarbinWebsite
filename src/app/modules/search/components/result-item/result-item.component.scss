@@ -1,0 +1,52 @@
+@import '../../../../shared/style-shared.scss';
+
+.item-container {
+    width: 400px;
+    // height: 450px;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $Grey;
+    box-shadow: $boxShadow;
+}
+
+.item-img {
+    width: 100%;
+    height: 300px;
+    background-image: url(../../../../../assets/images/home/landing-img.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.item-name {
+    color: $Dark;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.select-btn {
+    width: 110px;
+    height: 40px;
+    background-color: $Blue4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $PureWhite;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 22px;
+    transition: 0.1s linear;
+}
+
+.select-btn:hover {
+    background-color: $Blue5;
+}

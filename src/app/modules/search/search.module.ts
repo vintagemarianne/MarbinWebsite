@@ -4,11 +4,13 @@ import { SharedModule } from '@shr/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SearchRoutingModule } from './search-routing.module';
-import { SearchPage } from './pages/search/search.page'
+import { SearchPage } from './pages/search/search.page';
+import { ResultItemComponent } from './components/result-item/result-item.component'
 
 @NgModule({
   declarations: [
-    SearchPage
+    SearchPage,
+    ResultItemComponent
   ],
   imports: [
     CommonModule,

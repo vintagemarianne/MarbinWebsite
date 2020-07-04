@@ -12,9 +12,9 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   private urls: any = {
-    productList: environment.catalogueApiUrl + 'catalogue/index?',
-    product: environment.catalogueApiUrl + 'catalogue/product/',
-    ProductAvailability: environment.catalogueApiUrl + 'catalogue/product/availability',
+    productList: environment.catalogueApiUrl + 'index?',
+    product: environment.catalogueApiUrl + 'product/',
+    ProductAvailability: environment.catalogueApiUrl + 'product/availability',
   }
 
   searchProducts(): Promise<Product[]> {

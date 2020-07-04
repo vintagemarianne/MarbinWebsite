@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   direction: ltr;
-  font-family: IRANYekan-web, Roboto, IRANYekan-web-fanum, icomoon !important;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   background-color: $BackGround;
 }
@@ -27,7 +27,7 @@ body {
   select,
   textarea,
   button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   input {
