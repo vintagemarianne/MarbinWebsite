@@ -18,6 +18,8 @@ export class SearchPage implements OnInit {
   products = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
   searchParams: SearchParams = new SearchParams();
 
+  isProductAvailabilityBusy: boolean = false;
+
   constructor(private searchService: SearchService,
     private searchParamsService: SearchParamsService,
     private router: Router) { }
@@ -33,6 +35,18 @@ export class SearchPage implements OnInit {
     // }
 
 
+  }
+
+  onSelectProcduct() {
+    this.isProductAvailabilityBusy = true;
+
+    //todo...
+
+    setTimeout(()=> {
+      this.isProductAvailabilityBusy = false;
+      this.router.navigate([LocalData.routes.purchase]);
+    }, 5000);
+    
   }
 
 }

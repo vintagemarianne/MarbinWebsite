@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PurchaseService } from '@shr/services/purchase.service';
@@ -14,6 +14,7 @@ import { LocalData } from '@shr/local-data';
 export class ResultItemComponent implements OnInit {
 
   @Input() product: Product;
+  @Output() productSelected = new EventEmitter();
 
   constructor(private purchaseService: PurchaseService,
     private router: Router) { }
@@ -23,7 +24,7 @@ export class ResultItemComponent implements OnInit {
 
   selectProduct() {
     this.purchaseService.setSelectedProduct(this.product);
-    this.router.navigate([LocalData.routes.purchase]);
+    this.productSelected.emit();
   }
 
 }
