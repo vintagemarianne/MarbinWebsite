@@ -1,0 +1,25 @@
+<section class="main-container">
+  <swiper id="swiper" [config]="swiperConfig">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slider-img" [ngStyle]="{'background-image': 'url(' + product.header_image + ')'}"></div>
+      </div>
+    </div>
+  </swiper>
+
+  <div class="product-content">
+    <div class="title-container">
+      <div class="name">{{ product.name }}</div>
+      <div class="type">{{ product.location_type }}</div>
+    </div>
+    <div class="desc">{{ product.long_description }}</div>
+    <div class="desc" style="margin-top: 20px;">
+      <span class="bold-text">Services:<br /></span>
+      {{ product.services }}</div>
+  </div>
+
+  <div class="product-price-box">
+    <div class="price">Price: <span style="font-weight: bold;">{{ product.price }}$</span></div>
+    <div class="select-btn">Select</div>
+  </div>
+</section>

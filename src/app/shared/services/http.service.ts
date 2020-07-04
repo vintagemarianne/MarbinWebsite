@@ -20,4 +20,8 @@ export class HttpService {
   searchProducts(): Promise<Product[]> {
     return this.http.get<Product[]>(this.urls.productList + 'name=saint loup').toPromise();
   }
+
+  getProductDetail(productId: string): Promise<Product> {
+    return this.http.get<Product>(this.urls.product + productId).toPromise();
+  }
 }

@@ -1,11 +1,12 @@
 export class Product {
-    product_code: String;
-    name: String;
-    header_image: String;
-    price: String;
-    location_type: String;
-    pictures: String[];
-    long_description: String;
-    services: String;
-    map: String;
+    id: string;
+    product_code: string;
+    name: string;
+    header_image: string;
+    price: string;
+    location_type: string;
+    pictures: string[];
+    long_description: string;
+    services: string;
+    map: string;
 }

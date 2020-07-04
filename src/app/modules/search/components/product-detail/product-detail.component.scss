@@ -1,0 +1,123 @@
+@import '../../../../shared/style-shared.scss';
+
+.main-container {
+  width: 100%;
+  height: 430px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: $boxShadow;
+}
+
+#swiper {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  width: 100% !important;
+  height: 100%;
+}
+
+.slider-img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.product-content {
+  width: calc(100% - 650px);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold;
+  color: $Dark;
+}
+
+.type {
+  height: 30px;
+  background-color: $Yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $PureWhite;
+  font-size: 14px;
+  padding: 0 8px;
+  font-weight: bold;
+  border-radius: 30px;
+  margin-left: 8px;
+}
+
+.desc {
+  width: 100%;
+  text-align: justify;
+  text-align-last: left;
+  font-size: 18px;
+  color: $Dark;
+}
+
+.bold-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.product-price-box {
+  width: 250px;
+  height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  border-left: 1px solid #eeeeee;
+
+  .price {
+    font-size: 25px;
+    color: $Dark;
+  }
+
+  .select-btn {
+    width: 110px;
+    height: 40px;
+    background-color: $Blue4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $PureWhite;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 22px;
+    transition: 0.1s linear;
+    margin-top: 20px;
+  }
+
+  .select-btn:hover {
+    background-color: $Blue5;
+  }
+}

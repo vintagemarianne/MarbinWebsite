@@ -1,7 +1,8 @@
 export const LocalData = {
     routes: {
         home: '',
-        search: '/search',
+        searchResults: '/search/results',
+        resultDetails: '/search/details',
         purchase: '/purchase'
     }
 }

@@ -1,6 +1,6 @@
 <section class="item-container">
-    <div class="item-img"></div>
-    <div class="item-type">Type</div>
-    <div class="item-name">Name</div>
-    <div class="select-btn" (click)="selectProduct()">Select</div>
+    <div class="item-img" [ngStyle]="{'background-image': 'url(' + product.header_image + ')'}"></div>
+    <div class="item-type">{{ product.location_type }}</div>
+    <div class="item-name">{{ product.name  }}</div>
+    <div class="select-btn" (click)="selectProduct()">Details</div>
 </section>

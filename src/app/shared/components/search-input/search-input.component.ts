@@ -49,7 +49,7 @@ export class SearchInputComponent implements OnInit {
     }
 
     this.searchParamsService.setSearchParams(this.searchParams);
-    this.router.navigate([LocalData.routes.search], { queryParams: this.searchParams });
+    this.router.navigate([LocalData.routes.searchResults], { queryParams: this.searchParams });
   }
 
 }
