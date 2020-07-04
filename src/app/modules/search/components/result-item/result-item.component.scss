@@ -12,6 +12,7 @@
     align-items: center;
     background-color: $Grey;
     box-shadow: $boxShadow;
+    position: relative;
 }
 
 .item-img {
@@ -22,7 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .item-name {
@@ -30,6 +31,23 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
+}
+
+.item-type {
+    height: 30px;
+    background-color: $Yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $PureWhite;
+    font-size: 14px;
+    padding: 0 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    position: absolute;
+    top: 325px;
+    left: 15px;
 }
 
 .select-btn {
