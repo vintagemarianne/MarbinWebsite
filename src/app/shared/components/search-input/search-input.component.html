@@ -9,12 +9,12 @@
             <input type="text" class="input-field" placeholder="Region or country" [(ngModel)]="searchParams.PlaceLocation">
         </div>
         <div class="search-input-container">
-            <input type="text" class="input-field" placeholder="Start date" [(ngModel)]="searchParams.StartDate">
-            <span class="input-icon cursor-icon fa fa-calendar"></span>
+            <input type="date" class="input-field" placeholder="Start date" [(ngModel)]="searchParams.StartDate">
+            <!-- <span class="input-icon cursor-icon fa fa-calendar"></span> -->
         </div>
         <div class="search-input-container">
-            <input type="text" class="input-field" placeholder="End date" [(ngModel)]="searchParams.EndDate">
-            <span class="input-icon cursor-icon fa fa-calendar"></span>
+            <input type="date" class="input-field" placeholder="End date" [(ngModel)]="searchParams.EndDate">
+            <!-- <span class="input-icon cursor-icon fa fa-calendar"></span> -->
         </div>
         <div class="search-input-container">
             <div class="input-field">{{ searchParams.TravellerCount }} Traveller</div>
