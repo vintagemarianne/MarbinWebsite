@@ -3,6 +3,8 @@ export const LocalData = {
         home: '',
         searchResults: '/search/results',
         resultDetails: '/search/details',
-        purchase: '/purchase'
+        purchase: '/purchase',
+        signup: '/profile/signup',
+        login: '/profile/login'
     }
 }
