@@ -21,4 +21,8 @@ export class HeaderComponent implements OnInit {
   login() {
     this.router.navigate([LocalData.routes.login]);
   }
+
+  goHome() {
+    this.router.navigate([LocalData.routes.home]);
+  }
 }
