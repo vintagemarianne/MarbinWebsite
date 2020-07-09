@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { TokenService } from '@shr/services/token.service';
+import { LocalDbUsageService } from '@shr/services/local-db-usage.service';
+
 import { LocalData } from '@shr/local-data';
 
 @Component({
@@ -9,7 +13,9 @@ import { LocalData } from '@shr/local-data';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private localDbUsageServic: LocalDbUsageService,
+    public tokenService: TokenService) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +30,11 @@ export class HeaderComponent implements OnInit {
 
   goHome() {
     this.router.navigate([LocalData.routes.home]);
+  }
+
+  logout() {
+    this.localDbUsageServic.removeUserToken();
+    this.tokenService.setUserTicket(null);
+    this.goHome();
   }
 }

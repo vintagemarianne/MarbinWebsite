@@ -39,6 +39,10 @@
   box-shadow: $boxShadow;
 }
 
+.adress-input {
+  height: 120px;
+}
+
 .input:focus {
   border: 2px solid $Blue5;
 }

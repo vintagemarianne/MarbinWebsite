@@ -30,16 +30,16 @@ export class SearchPage implements OnInit {
     private purchaseService: PurchaseService) { }
 
   async ngOnInit() {
-    await this.searchService.searchProducts();
-    this.products = this.searchService.getProducts();
     // debugger;
     this.searchParams = this.searchParamsService.getSearchParams();
 
-    // if (!this.searchParams || (!this.searchParams.PlaceLocation && !this.searchParams.PlaceName)) {
-    //   this.router.navigate([LocalData.routes.home]);
-    // }
+    if (!this.searchParams || (!this.searchParams.PlaceLocation && !this.searchParams.PlaceName)) {
+      this.router.navigate([LocalData.routes.home]);
+      return;
+    }
 
-
+    await this.searchService.searchProducts();
+    this.products = this.searchService.getProducts();
   }
 
   async onSelectProcduct() {

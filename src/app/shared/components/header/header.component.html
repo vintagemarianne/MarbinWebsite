@@ -1,9 +1,9 @@
 <section class="header-container">
   <div class="header-title" (click)="goHome()">Marbin</div>
   <div class="user-container">
-    <div class="btn" *ngIf="true" (click)="signup()">Signup</div>
-    <div class="divider" *ngIf="true">/</div>
-    <div class="btn" *ngIf="true" (click)="login()">Login</div>
-    <div class="btn" *ngIf="false">Logout</div>
+    <div class="btn" *ngIf="!tokenService.isLoggedIn()" (click)="signup()">Signup</div>
+    <div class="divider" *ngIf="!tokenService.isLoggedIn()">/</div>
+    <div class="btn" *ngIf="!tokenService.isLoggedIn()" (click)="login()">Login</div>
+    <div class="btn" *ngIf="tokenService.isLoggedIn()" (click)="logout()">Logout</div>
   </div>
 </section>
