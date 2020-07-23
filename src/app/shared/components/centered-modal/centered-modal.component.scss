@@ -1,0 +1,49 @@
+@import '../../style-shared.scss';
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.loading {
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  box-shadow: $boxShadow;
+  background-image: url(/assets/images/shared/loading.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-color: $PureWhite;
+}
+
+.modal-box {
+  width: 500px;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: $boxShadow;
+  background-color: $PureWhite;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  .modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: $Blue1;
+    margin-bottom: 10px;
+  }
+
+  .modal-content {
+    font-size: 18px;
+    color: #000;
+  }
+}

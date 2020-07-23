@@ -1,0 +1,7 @@
+<section class="modal-container" *ngIf="centeredModalService.getState() !== CenteredModalEnum.None">
+    <div class="loading" *ngIf="centeredModalService.getState() === CenteredModalEnum.Loading"></div>
+    <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.ProductUnavailable">
+        <div class="modal-title">Error</div>
+        <div class="modal-content">Sorry, The product is unavailable.</div>
+    </div>
+</section>

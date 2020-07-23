@@ -5,11 +5,12 @@ import { SearchService } from '../../services/search.service';
 import { SearchParamsService } from '@shr/services/search-params.service';
 import { HttpService } from '@shr/services/http.service';
 import { PurchaseService } from '@shr/services/purchase.service';
+import { CenteredModalService } from '@shr/services/centered-modal.service';
 
 import { Product } from '@shr/models/product';
 import { SearchParams } from '@shr/models/search-params';
 import { LocalData } from '@shr/local-data';
-import { from } from 'rxjs';
+import { CenteredModalEnum } from '@shr/models/enums/centered-modal-enum';
 
 @Component({
   selector: 'app-search.page',
@@ -18,7 +19,6 @@ import { from } from 'rxjs';
 })
 export class SearchPage implements OnInit {
   products: Product[] = [];
-  // products = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
   searchParams: SearchParams = new SearchParams();
 
   isProductAvailabilityBusy: boolean = false;
@@ -27,10 +27,10 @@ export class SearchPage implements OnInit {
     private searchParamsService: SearchParamsService,
     private router: Router,
     private httpService: HttpService,
-    private purchaseService: PurchaseService) { }
+    private purchaseService: PurchaseService,
+    private centeredModalService: CenteredModalService) { }
 
   async ngOnInit() {
-    // debugger;
     this.searchParams = this.searchParamsService.getSearchParams();
 
     if (!this.searchParams || (!this.searchParams.PlaceLocation && !this.searchParams.PlaceName)) {
@@ -38,15 +38,18 @@ export class SearchPage implements OnInit {
       return;
     }
 
+    this.centeredModalService.showModal(CenteredModalEnum.Loading);
     await this.searchService.searchProducts();
     this.products = this.searchService.getProducts();
+    this.centeredModalService.closeModal();
   }
 
   async onSelectProcduct() {
-    this.isProductAvailabilityBusy = true;
+    this.centeredModalService.showModal(CenteredModalEnum.Loading);
     let product: Product = await this.httpService.getProductDetail(this.purchaseService.getSelectedProduct().id);
+    this.purchaseService.saveProductId(this.purchaseService.getSelectedProduct().id);
     this.purchaseService.setSelectedProduct(product);
-    this.isProductAvailabilityBusy = false;
+    this.centeredModalService.closeModal();
     this.router.navigate([LocalData.routes.resultDetails]);
   }
 

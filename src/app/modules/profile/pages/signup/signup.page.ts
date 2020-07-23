@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpService } from '@shr/services/http.service';
+import { Sha256Service } from '@shr/services/sha256.service';
 
 import { User } from '@shr/models/user';
 
@@ -13,7 +14,8 @@ export class SignupPage implements OnInit {
 
   user: User;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService,
+    private sha256Service: Sha256Service) { }
 
   ngOnInit(): void {
     this.user = new User();
@@ -30,8 +32,16 @@ export class SignupPage implements OnInit {
       return;
     }
 
-    let user: User = await this.httpService.signup(this.user);
-    debugger;
+    let newUser = {
+      email: this.user.email,
+      first_name: this.user.first_name,
+      last_name: this.user.last_name,
+      password_digest: this.sha256Service.SHA256(this.user.password_digest),
+      address: this.user.address,
+      phone: this.user.phone
+    }
+    
+    let user: User = await this.httpService.signup(newUser);
   }
 
 }

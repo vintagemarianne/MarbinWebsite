@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { HttpService } from '@shr/services/http.service';
 import { TokenService } from '@shr/services/token.service';
+import { Sha256Service } from '@shr/services/sha256.service';
 
 import { UserTicket } from '@shr/models/user-ticket';
 import { LocalData } from '@shr/local-data';
@@ -21,7 +22,8 @@ export class LoginPage implements OnInit {
 
   constructor(private httpService: HttpService,
     private tokenService: TokenService,
-    private router: Router) { }
+    private router: Router,
+    private sha256Service: Sha256Service) { }
 
   ngOnInit(): void {
   }
@@ -32,10 +34,9 @@ export class LoginPage implements OnInit {
       return;
     }
 
+    this.loginInfo.password = this.sha256Service.SHA256(this.loginInfo.password);
     let userTicket: UserTicket = await this.httpService.login(this.loginInfo);
-    debugger;
     await this.tokenService.setUserTicket(userTicket.ticket_name);
     this.router.navigate([LocalData.routes.home]);
   }
-
 }

@@ -16,7 +16,6 @@ export class SearchService {
 
   async searchProducts() {
     this.products = await this.httpService.searchProducts(this.searchParamsService.getSearchQueryString());
-    debugger;
   }
 
   getProducts(): Product[] {
