@@ -34,8 +34,12 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    this.loginInfo.password = this.sha256Service.SHA256(this.loginInfo.password);
-    let userTicket: UserTicket = await this.httpService.login(this.loginInfo);
+    let info = {
+      email: this.loginInfo.email,
+      password_digest: this.sha256Service.SHA256(this.loginInfo.password)
+    }
+    
+    let userTicket: UserTicket = await this.httpService.login(info);
     await this.tokenService.setUserTicket(userTicket.ticket_name);
     this.router.navigate([LocalData.routes.home]);
   }
