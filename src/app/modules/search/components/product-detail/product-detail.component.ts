@@ -48,7 +48,6 @@ export class ProductDetailComponent implements OnInit {
 
     this.centeredModalService.showModal(CenteredModalEnum.Loading);
     this.httpService.checkProductAvailability(input);
-    this.centeredModalService.closeModal();
   }
 
 }

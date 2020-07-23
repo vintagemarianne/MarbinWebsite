@@ -43,7 +43,10 @@ export class HttpService {
     this.http.post<ProductAvailabilityResponse>(this.urls.ProductAvailability, input).pipe(catchError(err => {
       this.centeredModalService.showModal(CenteredModalEnum.ProductUnavailable);
       return throwError(err);
-    })).subscribe((data: ProductAvailabilityResponse) => this.purchaseService.setProductAvailabilityResponse(data));
+    })).subscribe((data: ProductAvailabilityResponse) => {
+      this.centeredModalService.closeModal();
+      this.purchaseService.setProductAvailabilityResponse(data)
+    });
   }
 
   signup(user): Promise<User> {
