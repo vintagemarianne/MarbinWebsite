@@ -1,11 +1,11 @@
 <section class="main-container">
-  <!-- <swiper id="swiper" [config]="swiperConfig">
+  <div id="picturesSwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="slider-img" [ngStyle]="{'background-image': 'url(' + product.header_image + ')'}"></div>
+      <div class="swiper-slide" *ngFor="let img of images">
+        <div class="slider-img" [ngStyle]="{'background-image': 'url(' + img + ')'}"></div>
       </div>
     </div>
-  </swiper> -->
+  </div>
 
   <div class="product-content">
     <div class="title-container">

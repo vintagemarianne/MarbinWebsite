@@ -47,3 +47,29 @@
     color: #000;
   }
 }
+
+.btn-group {
+  display: flex;
+}
+
+.btn {
+  width: 125px;
+  height: 40px;
+  background-color: $Blue4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $PureWhite;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 22px;
+  transition: 0.1s linear;
+  margin-top: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: $Blue5;
+}

@@ -1,7 +1,42 @@
 <section class="modal-container" *ngIf="centeredModalService.getState() !== CenteredModalEnum.None">
-    <div class="loading" *ngIf="centeredModalService.getState() === CenteredModalEnum.Loading"></div>
-    <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.ProductUnavailable">
-        <div class="modal-title">Error</div>
-        <div class="modal-content">Sorry, The product is unavailable.</div>
+  <div class="loading" *ngIf="centeredModalService.getState() === CenteredModalEnum.Loading"></div>
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.ProductUnavailable">
+    <div class="modal-title">Error</div>
+    <div class="modal-content">Sorry, The product is unavailable.</div>
+    <div class="btn" (click)="goHome()">Home</div>
+  </div>
+
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.ProductAvailable">
+    <div class="modal-title">Congrates!</div>
+    <div class="modal-content">The product is available.</div>
+    <div class="btn" (click)="book()">Purchase</div>
+  </div>
+
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.NotAuthorized">
+    <div class="modal-title">Not Authorized!</div>
+    <div class="modal-content">You are not authorized.</div>
+    <div class="btn-group">
+      <div class="btn" (click)="signup()">Signup</div>
+      <div class="btn" (click)="login()">Login</div>
     </div>
+  </div>
+
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.Confirm">
+    <div class="modal-content">Are you sure to confirm this order?</div>
+    <div class="btn-group">
+      <div class="btn" (click)="confirm()">Confirm</div>
+      <div class="btn" (click)="cancel()">Cancel</div>
+    </div>
+  </div>
+
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.OrderSuccessful">
+    <div class="modal-title">Congrates!</div>
+    <div class="modal-content">Your order submitted successfully.</div>
+    <div class="btn" (click)="goHome()">Home</div>
+  </div>
+
+  <div class="modal-box" *ngIf="centeredModalService.getState() === CenteredModalEnum.OrderCancel">
+    <div class="modal-content">Your order canceled.</div>
+    <div class="btn" (click)="goHome()">Home</div>
+  </div>
 </section>

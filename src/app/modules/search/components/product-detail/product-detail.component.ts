@@ -18,6 +18,8 @@ import { Product } from '@shr/models/product';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() product: Product;
+
+  images: string[] = [];
   
   constructor(private httpService: HttpService,
     private centeredModalService: CenteredModalService,
@@ -28,17 +30,21 @@ export class ProductDetailComponent implements OnInit {
     pagination: { el: '.swiper-pagination', clickable: true },
     autoHeight: true,
     allowTouchMove: true,
-    slidesPerView: 1,
+    autoplay: true,
+    slidesPerView: 4,
     navigation: {
       nextEl: '.button-next',
       prevEl: '.button-prev'
     },
-    loop: false
+    loop: true
   };
 
   ngOnInit(): void {
+    for (let i = 0; i < 5; i++) {
+      this.images.push(this.product.pictures[i]);
+    }
   }
-  
+
   checkAvailability() {
     let input: ProductAvailabilityInput = new ProductAvailabilityInput();
     input.product_id = this.purchaseService.getProductId();

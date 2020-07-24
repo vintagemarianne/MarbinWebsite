@@ -2,8 +2,14 @@
   <app-search-input class="search-input"></app-search-input>
 
   <div class="result-list">
-    <div *ngFor="let product of products">
-      <app-result-item [product]="product" (productSelected)="onSelectProcduct()"></app-result-item>
+    <div *ngIf="products.length !== 0">
+      <div *ngFor="let product of products">
+        <app-result-item [product]="product" (productSelected)="onSelectProcduct()"></app-result-item>
+      </div>
+    </div>
+    
+    <div *ngIf="products.length === 0">
+      There is no result found.
     </div>
   </div>
 </section>

@@ -13,6 +13,11 @@ import { ProductAvailabilityResponse } from '@shr/models/product-availability-re
 import { throwError, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CenteredModalEnum } from '@shr/models/enums/centered-modal-enum';
+import { OrderNewInput } from '@shr/models/order-new-input';
+import { OrderNewResponse } from '@shr/models/order-new-response';
+import { promise } from 'protractor';
+import { OrderConfirmInput } from '@shr/models/order-confirm-input';
+import { OrderConfirmResponse } from '@shr/models/order-confirm-response';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +33,10 @@ export class HttpService {
     product: environment.catalogueApiUrl + 'product/',
     ProductAvailability: environment.catalogueApiUrl + 'product/availability',
     signup: environment.usersApiUrl + 'signup',
-    login: environment.usersApiUrl + 'signin'
+    login: environment.usersApiUrl + 'signin',
+    newOrder: environment.ordersApiUrl + 'new',
+    confirmOrder: environment.ordersApiUrl + 'confirm',
+    cancelOrder: environment.ordersApiUrl + 'cancel'
   }
 
   searchProducts(queryString: string): Promise<Product[]> {
@@ -44,7 +52,7 @@ export class HttpService {
       this.centeredModalService.showModal(CenteredModalEnum.ProductUnavailable);
       return throwError(err);
     })).subscribe((data: ProductAvailabilityResponse) => {
-      this.centeredModalService.closeModal();
+      this.centeredModalService.showModal(CenteredModalEnum.ProductAvailable);
       this.purchaseService.setProductAvailabilityResponse(data)
     });
   }
@@ -55,5 +63,33 @@ export class HttpService {
 
   login(loginInfo): Promise<UserTicket> {
     return this.http.post<UserTicket>(this.urls.login, loginInfo).toPromise();
+  }
+
+  newOrder(input: OrderNewInput) {
+    this.http.post<OrderNewResponse>(this.urls.newOrder, input).pipe(catchError(err => {
+      this.centeredModalService.showModal(CenteredModalEnum.ProductUnavailable);
+      return throwError(err);
+    })).subscribe((data: OrderNewResponse) => {
+      this.centeredModalService.showModal(CenteredModalEnum.Confirm);
+      this.purchaseService.setNewOrderResponse(data);
+    });;
+  }
+
+  confirmOrder(input: OrderConfirmInput) {
+    this.http.post<OrderConfirmResponse>(this.urls.confirmOrder, input).pipe(catchError(err => {
+      this.centeredModalService.showModal(CenteredModalEnum.ProductUnavailable);
+      return throwError(err);
+    })).subscribe((data: OrderConfirmResponse) => {
+      this.centeredModalService.showModal(CenteredModalEnum.OrderSuccessful);
+    });;
+  }
+
+  cancelOrder(input: OrderConfirmInput) {
+    this.http.post<OrderConfirmResponse>(this.urls.cancelOrder, input).pipe(catchError(err => {
+      this.centeredModalService.showModal(CenteredModalEnum.ProductUnavailable);
+      return throwError(err);
+    })).subscribe((data: OrderConfirmResponse) => {
+      this.centeredModalService.showModal(CenteredModalEnum.OrderCancel);
+    });;
   }
 }
