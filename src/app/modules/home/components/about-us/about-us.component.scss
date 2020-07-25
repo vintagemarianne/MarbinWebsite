@@ -1,0 +1,35 @@
+@import '../../../../shared/style-shared.scss';
+
+.aboutus-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 50px 0;
+}
+
+.aboutus-item {
+  width: 100%;
+  max-width: 280px;
+  height: 210px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 20px;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.aboutus-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: $Blue4;
+}
+
+.aboutus-title {
+    margin-bottom: 16px;
+    color: $Blue4;
+    font-weight: bold;
+}

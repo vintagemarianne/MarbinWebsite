@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CenteredModalComponent } from './components/centered-modal/centered-modal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [SearchInputComponent, HeaderComponent, CenteredModalComponent],
+  declarations: [SearchInputComponent, HeaderComponent, CenteredModalComponent, FooterComponent],
   imports: [
     CommonModule,
     FormsModule
@@ -15,7 +16,8 @@ import { CenteredModalComponent } from './components/centered-modal/centered-mod
   exports: [
     SearchInputComponent,
     HeaderComponent,
-    CenteredModalComponent
+    CenteredModalComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

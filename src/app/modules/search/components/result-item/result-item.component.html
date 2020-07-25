@@ -1,4 +1,4 @@
-<section class="item-container">
+<section class="item-container" (click)="show()">
     <div class="item-img" [ngStyle]="{'background-image': 'url(' + product.header_image + ')'}"></div>
     <div class="item-type">{{ product.location_type }}</div>
     <div class="item-name">{{ product.name  }}</div>

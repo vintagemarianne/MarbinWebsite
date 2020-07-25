@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SearchParamsService } from '@shr/services/search-params.service';
+import { EventService } from '@shr/services/event.service';
 
 import { SearchParams } from '@shr/models/search-params';
 import { LocalData } from '@shr/local-data';
@@ -16,7 +17,8 @@ export class SearchInputComponent implements OnInit {
   searchParams: SearchParams = new SearchParams();
 
   constructor(private router: Router,
-    private searchParamsService: SearchParamsService) { }
+    private searchParamsService: SearchParamsService,
+    private eventService: EventService) { }
 
   ngOnInit(): void {
     this.searchParams = this.searchParamsService.getSearchParams();
@@ -49,7 +51,13 @@ export class SearchInputComponent implements OnInit {
     }
 
     this.searchParamsService.setSearchParams(this.searchParams);
-    this.router.navigate([LocalData.routes.searchResults], { queryParams: this.searchParams });
+
+    if (this.router.url.indexOf('search/result') > -1) {
+      this.router.navigate([LocalData.routes.searchResults], { queryParams: this.searchParams });
+      this.eventService.emit(LocalData.events.searchUpdated);
+    } else {
+      this.router.navigate([LocalData.routes.searchResults], { queryParams: this.searchParams });
+    }
   }
 
 }

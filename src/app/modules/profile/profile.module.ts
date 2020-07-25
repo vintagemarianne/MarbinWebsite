@@ -6,11 +6,13 @@ import { PurchaseRoutingModule } from './profile-routing.module';
 
 import { LoginPage } from './pages/login/login.page';
 import { SignupPage } from './pages/signup/signup.page';
+import { ProfilePage } from './pages/profile/profile.page';
 
 @NgModule({
   declarations: [
     SignupPage,
-    LoginPage
+    LoginPage,
+    ProfilePage
   ],
   imports: [
     CommonModule,

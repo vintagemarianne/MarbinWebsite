@@ -5,11 +5,13 @@ import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePage } from './pages/home/home.page';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
     HomePage,
-    TopBarComponent
+    TopBarComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

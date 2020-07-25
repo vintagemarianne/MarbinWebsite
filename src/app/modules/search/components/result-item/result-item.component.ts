@@ -27,4 +27,8 @@ export class ResultItemComponent implements OnInit {
     this.productSelected.emit();
   }
 
+  show() {
+    console.log(this.product)
+  }
+
 }

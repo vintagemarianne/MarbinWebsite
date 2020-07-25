@@ -5,6 +5,11 @@ export const LocalData = {
         resultDetails: '/search/details',
         purchase: '/purchase',
         signup: '/profile/signup',
-        login: '/profile/login'
+        login: '/profile/login',
+        profile: '/profile/user'
+    },
+    events: {
+        filtersUpdated: 'filtersUpdated',
+        searchUpdated: 'searchUpdated'
     }
 }

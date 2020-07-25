@@ -9,14 +9,16 @@ import { SearchRoutingModule } from './search-routing.module';
 import { SearchPage } from './pages/search/search.page';
 import { ResultItemComponent } from './components/result-item/result-item.component';
 import { DetailPage } from './pages/product-detail/detail.page';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component'
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { FilterComponent } from './components/filter/filter.component'
 
 @NgModule({
   declarations: [
     SearchPage,
     ResultItemComponent,
     DetailPage,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,

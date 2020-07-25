@@ -6,6 +6,8 @@ import { SearchParamsService } from '@shr/services/search-params.service';
 import { HttpService } from '@shr/services/http.service';
 import { PurchaseService } from '@shr/services/purchase.service';
 import { CenteredModalService } from '@shr/services/centered-modal.service';
+import { EventService } from '@shr/services/event.service';
+import { FilterService } from '../../services/filter.service';
 
 import { Product } from '@shr/models/product';
 import { SearchParams } from '@shr/models/search-params';
@@ -28,7 +30,9 @@ export class SearchPage implements OnInit {
     private router: Router,
     private httpService: HttpService,
     private purchaseService: PurchaseService,
-    private centeredModalService: CenteredModalService) { }
+    private centeredModalService: CenteredModalService,
+    private eventService: EventService,
+    private filterService: FilterService) { }
 
   async ngOnInit() {
     this.searchParams = this.searchParamsService.getSearchParams();
@@ -42,6 +46,18 @@ export class SearchPage implements OnInit {
     await this.searchService.searchProducts();
     this.products = this.searchService.getProducts();
     this.centeredModalService.closeModal();
+
+    this.eventService.subscribe(LocalData.events.searchUpdated, async () => {
+      this.searchParams = this.searchParamsService.getSearchParams();
+      this.centeredModalService.showModal(CenteredModalEnum.Loading);
+      await this.searchService.searchProducts();
+      this.products = this.searchService.getProducts();
+      this.centeredModalService.closeModal();
+    })
+
+    this.eventService.subscribe(LocalData.events.filtersUpdated, () => {
+      this.products = this.filterService.getFilteredProducts();
+    })
   }
 
   async onSelectProcduct() {

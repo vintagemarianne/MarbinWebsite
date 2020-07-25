@@ -1,0 +1,25 @@
+<section class="filter-container">
+  <div class="filter-title">Filters</div>
+  <div class="remove-btn" (click)="removeFilters()">Remove filters</div>
+
+  <div class="filter-section">
+    <div class="filter-section-title">Location type</div>
+    <div class="filter-item" *ngFor="let item of locationTypes; let index = index;">
+      <div class="check-box" (click)="toggleFilter('locationType', index)">
+        <div class="check" *ngIf="item.checked"></div>
+      </div>
+      <div class="item-title">{{ item.title }}</div>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-section-title">Price</div>
+    <div class="filter-item" *ngFor="let item of prices; let index = index;">
+      <div class="check-box" (click)="toggleFilter('price', index)">
+        <div class="check" *ngIf="item.checked"></div>
+      </div>
+      <div class="item-title">{{ item.title }}</div>
+    </div>
+  </div>
+
+</section>
