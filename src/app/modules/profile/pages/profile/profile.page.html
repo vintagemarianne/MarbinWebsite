@@ -1,1 +1,63 @@
-<p>profile works!</p>
+<section class="page-container">
+  <div class="btn-container">
+    <div class="change-pass-btn" (click)="isChangePasswordModalOpen = true;">Change password</div>
+    <div class="delete-btn">Delete account</div>
+  </div>
+
+  <div class="frame">
+    <div class="frame-title">
+      <div class="title">User Information</div>
+      <div class="edit-btn" *ngIf="!isEditing" (click)="isEditing = !isEditing">Edit</div>
+      <div class="submit-btn" *ngIf="isEditing" (click)="submit()">Submit</div>
+    </div>
+
+    <div class="loading" *ngIf="isBusy"></div>
+
+    <div class="frame-content" *ngIf="!isBusy">
+      <div class="info-row">
+        <div class="info-title">First Name</div>
+        <div class="info-value" *ngIf="!isEditing"></div>
+        <input type="text" class="info-input" placeholder="First Name" *ngIf="isEditing" />
+      </div>
+
+      <div class="info-row">
+        <div class="info-title">Last Name</div>
+        <div class="info-value" *ngIf="!isEditing"></div>
+        <input type="text" class="info-input" placeholder="Last Name" *ngIf="isEditing" />
+      </div>
+
+      <div class="info-row">
+        <div class="info-title">Email</div>
+        <div class="info-value" *ngIf="!isEditing"></div>
+        <input type="text" class="info-input" placeholder="Email" *ngIf="isEditing" />
+      </div>
+
+      <div class="info-row">
+        <div class="info-title">Phone</div>
+        <div class="info-value" *ngIf="!isEditing"></div>
+        <input type="text" class="info-input" placeholder="Phone" *ngIf="isEditing" />
+      </div>
+
+      <div class="info-row">
+        <div class="info-title">Address</div>
+        <div class="info-value" *ngIf="!isEditing"></div>
+        <input type="text" class="info-input" placeholder="Address" *ngIf="isEditing" />
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="isChangePasswordModalOpen">
+    <div class="modal-box">
+      <div class="modal-loading" *ngIf="isModalBusy"></div>
+
+      <ng-template [ngIf]="!isModalBusy">
+        <div class="close" (click)="isChangePasswordModalOpen = false;">X</div>
+        <div class="modal-title">Change password</div>
+        <input type="password" class="modal-input" placeholder="Current password" [(ngModel)]="currentPassword" />
+        <input type="password" class="modal-input" placeholder="New passowrd" [(ngModel)]="newPassword" />
+        <div class="modal-btn" (click)="changePassword()">Submit</div>
+      </ng-template>
+
+    </div>
+  </div>
+</section>
