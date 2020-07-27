@@ -16,32 +16,32 @@
     <div class="frame-content" *ngIf="!isBusy">
       <div class="info-row">
         <div class="info-title">First Name</div>
-        <div class="info-value" *ngIf="!isEditing"></div>
-        <input type="text" class="info-input" placeholder="First Name" *ngIf="isEditing" />
+        <div class="info-value" *ngIf="!isEditing">{{ user.first_name }}</div>
+        <input type="text" class="info-input" placeholder="First Name" *ngIf="isEditing" [(ngModel)]="user.first_name" />
       </div>
 
       <div class="info-row">
         <div class="info-title">Last Name</div>
-        <div class="info-value" *ngIf="!isEditing"></div>
-        <input type="text" class="info-input" placeholder="Last Name" *ngIf="isEditing" />
+        <div class="info-value" *ngIf="!isEditing">{{ user.last_name }}</div>
+        <input type="text" class="info-input" placeholder="Last Name" *ngIf="isEditing" [(ngModel)]="user.last_name"/>
       </div>
 
       <div class="info-row">
         <div class="info-title">Email</div>
-        <div class="info-value" *ngIf="!isEditing"></div>
-        <input type="text" class="info-input" placeholder="Email" *ngIf="isEditing" />
+        <div class="info-value">{{ user.email }}</div>
+        <!-- <input type="text" class="info-input" placeholder="Email" *ngIf="isEditing" /> -->
       </div>
 
       <div class="info-row">
         <div class="info-title">Phone</div>
-        <div class="info-value" *ngIf="!isEditing"></div>
-        <input type="text" class="info-input" placeholder="Phone" *ngIf="isEditing" />
+        <div class="info-value" *ngIf="!isEditing">{{ user.phone }}</div>
+        <input type="text" class="info-input" placeholder="Phone" *ngIf="isEditing" [(ngModel)]="user.phone"/>
       </div>
 
       <div class="info-row">
         <div class="info-title">Address</div>
-        <div class="info-value" *ngIf="!isEditing"></div>
-        <input type="text" class="info-input" placeholder="Address" *ngIf="isEditing" />
+        <div class="info-value" *ngIf="!isEditing">{{ user.address }}</div>
+        <input type="text" class="info-input" placeholder="Address" *ngIf="isEditing" [(ngModel)]="user.address"/>
       </div>
     </div>
   </div>

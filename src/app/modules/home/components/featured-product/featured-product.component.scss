@@ -1,0 +1,71 @@
+@import '../../../../shared/style-shared.scss';
+
+.product-box {
+  width: 400px;
+  height: 300px;
+  border-radius: 14px;
+  box-shadow: $boxShadow;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  cursor: pointer;
+  transition: 0.3s linear;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-box:hover {
+  border-radius: 0;
+}
+
+.box-content {
+  padding: 30px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgb(216 216 249 / 60%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .type {
+    padding: 0 16px;
+    height: 30px;
+    font-size: 14px;
+    color: $PureWhite;
+    background-color: $Yellow;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .price {
+    margin-top: 16px;
+    font-size: 28px;
+    color: $PureWhite;
+    font-weight: bold;
+  }
+}
+
+.off-badge {
+  position: absolute;
+  background-color: red;
+  color: $PureWhite;
+  top: 0;
+  left: 0;
+  padding: 16px;
+  border-radius: 0 0 20px 0;
+}

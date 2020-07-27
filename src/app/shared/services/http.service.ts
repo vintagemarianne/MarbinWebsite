@@ -18,6 +18,7 @@ import { OrderNewResponse } from '@shr/models/order-new-response';
 import { promise } from 'protractor';
 import { OrderConfirmInput } from '@shr/models/order-confirm-input';
 import { OrderConfirmResponse } from '@shr/models/order-confirm-response';
+import { env } from 'process';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,8 @@ export class HttpService {
     ProductAvailability: environment.catalogueApiUrl + 'product/availability',
     signup: environment.usersApiUrl + 'signup',
     login: environment.usersApiUrl + 'signin',
+    getUserInfo: environment.usersApiUrl + 'status',
+    updateUserInfo: environment.usersApiUrl + 'update/user',
     newOrder: environment.ordersApiUrl + 'new',
     confirmOrder: environment.ordersApiUrl + 'confirm',
     cancelOrder: environment.ordersApiUrl + 'cancel'
@@ -41,6 +44,10 @@ export class HttpService {
 
   searchProducts(queryString: string): Promise<Product[]> {
     return this.http.get<Product[]>(this.urls.productList + queryString).toPromise();
+  }
+
+  searchFeaturedProducts(): Promise<Product[]> {
+    return this.http.get<Product[]>(this.urls.productList + 'featured=true').toPromise();
   }
 
   getProductDetail(productId: string): Promise<Product> {
@@ -63,6 +70,14 @@ export class HttpService {
 
   login(loginInfo): Promise<UserTicket> {
     return this.http.post<UserTicket>(this.urls.login, loginInfo).toPromise();
+  }
+
+  getUserInfo(ticketName: string): Promise<User> {
+    return this.http.post<User>(this.urls.getUserInfo, { "ticket_name": ticketName }).toPromise();
+  }
+
+  updateUserInfo(newUser): Promise<any> {
+    return this.http.put<any>(this.urls.updateUserInfo, newUser).toPromise();
   }
 
   newOrder(input: OrderNewInput) {

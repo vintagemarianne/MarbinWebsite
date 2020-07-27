@@ -16,19 +16,19 @@ export class FilterService {
 
   private prices: Filter[] = [
     {
-      title: 'Less than 350$',
+      title: 'Less than 350€',
       checked: false
     },
     {
-      title: 'Between 350 - 400$',
+      title: 'Between 350 - 400€',
       checked: false
     },
     {
-      title: 'Between 400 - 450$',
+      title: 'Between 400 - 450€',
       checked: false
     },
     {
-      title: 'More than 450$',
+      title: 'More than 450€',
       checked: false
     },
   ]
@@ -124,28 +124,28 @@ export class FilterService {
       this.prices.forEach(price => {
         if (price.checked) {
           switch (price.title) {
-            case 'Less than 350$':
+            case 'Less than 350€':
               this.products.forEach(product => {
                 if (+product.price < 350) {
                   this.filteredProducts.push(product);
                 }
               })
               break;
-            case 'Between 350 - 400$':
+            case 'Between 350 - 400€':
               this.products.forEach(product => {
                 if (+product.price >= 350 && +product.price < 400) {
                   this.filteredProducts.push(product);
                 }
               })
               break;
-            case 'Between 450 - 450$':
+            case 'Between 450 - 450€':
               this.products.forEach(product => {
                 if (+product.price >= 400 && +product.price < 450) {
                   this.filteredProducts.push(product);
                 }
               })
               break;
-            case 'More than 450$':
+            case 'More than 450€':
               this.products.forEach(product => {
                 if (+product.price >= 450) {
                   this.filteredProducts.push(product);
@@ -170,28 +170,28 @@ export class FilterService {
     this.prices.forEach(price => {
       if (price.checked) {
         switch (price.title) {
-          case 'Less than 350$':
+          case 'Less than 350€':
             this.products.forEach(product => {
               if (+product.price < 350 && types.indexOf(product.location_type) > -1) {
                 this.filteredProducts.push(product);
               }
             })
             break;
-          case 'Between 350 - 400$':
+          case 'Between 350 - 400€':
             this.products.forEach(product => {
               if (+product.price >= 350 && +product.price < 400 && types.indexOf(product.location_type) > -1) {
                 this.filteredProducts.push(product);
               }
             })
             break;
-          case 'Between 450 - 450$':
+          case 'Between 450 - 450€':
             this.products.forEach(product => {
               if (+product.price >= 400 && +product.price < 450 && types.indexOf(product.location_type) > -1) {
                 this.filteredProducts.push(product);
               }
             })
             break;
-          case 'More than 450$':
+          case 'More than 450€':
             this.products.forEach(product => {
               if (+product.price >= 450 && types.indexOf(product.location_type) > -1) {
                 this.filteredProducts.push(product);

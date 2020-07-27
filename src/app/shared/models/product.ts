@@ -9,4 +9,6 @@ export class Product {
     long_description: string;
     services: string;
     map: string;
+    offered_percentage: string;
+    offered_price: string;
 }

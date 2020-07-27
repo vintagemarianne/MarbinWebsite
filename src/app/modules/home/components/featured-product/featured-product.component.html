@@ -1,0 +1,9 @@
+<section class="product-box" [ngStyle]="{'background-image': 'url(' + product.header_image + ')'}"
+  (click)="selectProduct()">
+  <div class="off-badge">{{ product.offered_percentage }} OFF!</div>
+  <div class="box-content">
+    <div class="title">{{ product.name }}</div>
+    <div class="type">{{ product.location_type }}</div>
+    <div class="price">Just {{ product.offered_price }}!</div>
+  </div>
+</section>

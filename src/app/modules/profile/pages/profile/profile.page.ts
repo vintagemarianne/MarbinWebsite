@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpService } from '@shr/services/http.service';
+import { TokenService } from '@shr/services/token.service';
+
+import { User } from '@shr/models/user';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -14,13 +19,29 @@ export class ProfilePage implements OnInit {
   newPassword: string = '';
   currentPassword: string = '';
 
-  constructor() { }
+  user: User;
 
-  ngOnInit(): void {
+  constructor(private httpService: HttpService,
+    private tokenService: TokenService) { }
+
+  async ngOnInit() {
+    this.isBusy = true;
+    this.user = await this.httpService.getUserInfo(this.tokenService.getUserTicket());
+    this.isBusy = false;
   }
 
-  submit() {
+  async submit() {
     this.isBusy = true;
+
+    let newUser = {
+      first_name: this.user.first_name,
+      last_name: this.user.last_name,
+      phone: this.user.phone,
+      address: this.user.address,
+      ticket_name: this.tokenService.getUserTicket()
+    }
+
+    await this.httpService.updateUserInfo(newUser);
 
     this.isBusy = false;
     this.isEditing = !this.isEditing;

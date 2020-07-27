@@ -1,2 +1,11 @@
 <app-top-bar></app-top-bar>
 <app-about-us></app-about-us>
+
+<section class="offer-section">
+    <div class="offer-title">Special Offers!</div>
+    <div class="offer-list">
+        <ng-container *ngFor="let product of featuredProducts">
+            <app-featured-product [product]="product"></app-featured-product>
+        </ng-container>
+    </div>
+</section>

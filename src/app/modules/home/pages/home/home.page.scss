@@ -1,0 +1,25 @@
+@import '../../../../shared/style-shared.scss';
+
+.offer-section {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.offer-title {
+  color: $Blue2;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.offer-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
