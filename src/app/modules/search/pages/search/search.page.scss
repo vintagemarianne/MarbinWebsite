@@ -30,18 +30,19 @@
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
+  padding-top: 80px;
 }
 
 .result-list {
   width: calc(100% - 330px);
   // height: 100vh;
   min-height: 100vh;
-  padding: 20px 5px;
+  // padding: 20px 5px;
   box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 60px;
+  // margin-top: 60px;
   // overflow: auto;
 }

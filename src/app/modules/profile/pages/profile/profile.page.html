@@ -1,7 +1,7 @@
 <section class="page-container">
   <div class="btn-container">
     <div class="change-pass-btn" (click)="isChangePasswordModalOpen = true;">Change password</div>
-    <div class="delete-btn">Delete account</div>
+    <div class="delete-btn" (click)="isDeleteModalOpen = true;">Delete account</div>
   </div>
 
   <div class="frame">
@@ -17,13 +17,14 @@
       <div class="info-row">
         <div class="info-title">First Name</div>
         <div class="info-value" *ngIf="!isEditing">{{ user.first_name }}</div>
-        <input type="text" class="info-input" placeholder="First Name" *ngIf="isEditing" [(ngModel)]="user.first_name" />
+        <input type="text" class="info-input" placeholder="First Name" *ngIf="isEditing"
+          [(ngModel)]="user.first_name" />
       </div>
 
       <div class="info-row">
         <div class="info-title">Last Name</div>
         <div class="info-value" *ngIf="!isEditing">{{ user.last_name }}</div>
-        <input type="text" class="info-input" placeholder="Last Name" *ngIf="isEditing" [(ngModel)]="user.last_name"/>
+        <input type="text" class="info-input" placeholder="Last Name" *ngIf="isEditing" [(ngModel)]="user.last_name" />
       </div>
 
       <div class="info-row">
@@ -35,13 +36,13 @@
       <div class="info-row">
         <div class="info-title">Phone</div>
         <div class="info-value" *ngIf="!isEditing">{{ user.phone }}</div>
-        <input type="text" class="info-input" placeholder="Phone" *ngIf="isEditing" [(ngModel)]="user.phone"/>
+        <input type="text" class="info-input" placeholder="Phone" *ngIf="isEditing" [(ngModel)]="user.phone" />
       </div>
 
       <div class="info-row">
         <div class="info-title">Address</div>
         <div class="info-value" *ngIf="!isEditing">{{ user.address }}</div>
-        <input type="text" class="info-input" placeholder="Address" *ngIf="isEditing" [(ngModel)]="user.address"/>
+        <input type="text" class="info-input" placeholder="Address" *ngIf="isEditing" [(ngModel)]="user.address" />
       </div>
     </div>
   </div>
@@ -56,6 +57,20 @@
         <input type="password" class="modal-input" placeholder="Current password" [(ngModel)]="currentPassword" />
         <input type="password" class="modal-input" placeholder="New passowrd" [(ngModel)]="newPassword" />
         <div class="modal-btn" (click)="changePassword()">Submit</div>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="isDeleteModalOpen">
+    <div class="modal-box">
+      <div class="modal-loading" *ngIf="isModalBusy"></div>
+
+      <ng-template [ngIf]="!isModalBusy">
+        <div class="close" (click)="isDeleteModalOpen = false;">X</div>
+        <div class="modal-title">Delete account</div>
+        <input type="password" class="modal-input" placeholder="password" [(ngModel)]="currentPassword" />
+        <div class="modal-btn-delete" (click)="deleteAccount()">Delete</div>
       </ng-template>
 
     </div>

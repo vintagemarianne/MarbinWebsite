@@ -231,6 +231,21 @@
   margin-top: 10px;
 }
 
+.modal-btn-delete {
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: $PureWhite;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: red;
+  margin-top: 10px;
+}
+
 .modal-loading {
   width: 388px;
   height: 200px;

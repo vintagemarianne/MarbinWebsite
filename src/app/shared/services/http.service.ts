@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { PurchaseService } from './purchase.service';
 import { CenteredModalService } from '@shr/services/centered-modal.service';
+import { TokenService } from '@shr/services/token.service';
 
 import { environment } from '@env/environment';
 import { Product } from '@shr/models/product';
@@ -15,7 +16,6 @@ import { catchError } from 'rxjs/operators';
 import { CenteredModalEnum } from '@shr/models/enums/centered-modal-enum';
 import { OrderNewInput } from '@shr/models/order-new-input';
 import { OrderNewResponse } from '@shr/models/order-new-response';
-import { promise } from 'protractor';
 import { OrderConfirmInput } from '@shr/models/order-confirm-input';
 import { OrderConfirmResponse } from '@shr/models/order-confirm-response';
 import { env } from 'process';
@@ -27,16 +27,21 @@ export class HttpService {
 
   constructor(private http: HttpClient,
     private purchaseService: PurchaseService,
-    private centeredModalService: CenteredModalService) { }
+    private centeredModalService: CenteredModalService,
+    private tokenService: TokenService) { }
 
   private urls: any = {
     productList: environment.catalogueApiUrl + 'index?',
     product: environment.catalogueApiUrl + 'product/',
     ProductAvailability: environment.catalogueApiUrl + 'product/availability',
+
     signup: environment.usersApiUrl + 'signup',
     login: environment.usersApiUrl + 'signin',
     getUserInfo: environment.usersApiUrl + 'status',
     updateUserInfo: environment.usersApiUrl + 'update/user',
+    changePassword: environment.usersApiUrl + 'update/password',
+    deleteAccount: environment.usersApiUrl + 'delete/user',
+
     newOrder: environment.ordersApiUrl + 'new',
     confirmOrder: environment.ordersApiUrl + 'confirm',
     cancelOrder: environment.ordersApiUrl + 'cancel'
@@ -68,8 +73,14 @@ export class HttpService {
     return this.http.post<User>(this.urls.signup, user).toPromise();
   }
 
-  login(loginInfo): Promise<UserTicket> {
-    return this.http.post<UserTicket>(this.urls.login, loginInfo).toPromise();
+  login(loginInfo) {
+    this.http.post<UserTicket>(this.urls.login, loginInfo).pipe(catchError(err => {
+      alert(err.error.message);
+      return throwError(err);
+    })).subscribe(async (data: UserTicket) => {
+      await this.tokenService.setUserTicket(data.ticket_name);
+    });;
+
   }
 
   getUserInfo(ticketName: string): Promise<User> {
@@ -77,7 +88,23 @@ export class HttpService {
   }
 
   updateUserInfo(newUser): Promise<any> {
-    return this.http.put<any>(this.urls.updateUserInfo, newUser).toPromise();
+    return this.http.post<any>(this.urls.updateUserInfo, newUser).toPromise();
+  }
+
+  changePassword(input) {
+    this.http.post<any>(this.urls.changePassword, input).pipe(catchError(err => {
+      alert(err.error.message);
+      return throwError(err);
+    })).subscribe((data) => {
+    });;
+  }
+
+  deleteAccount(input) {
+    return this.http.post<any>(this.urls.deleteAccount, input).pipe(catchError(err => {
+      alert(err.error.message);
+      return throwError(err);
+    })).subscribe((data) => {
+    });;
   }
 
   newOrder(input: OrderNewInput) {
